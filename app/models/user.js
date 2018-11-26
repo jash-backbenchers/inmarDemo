@@ -15,14 +15,11 @@ var userSchema=new Schema({
 
 userSchema.pre('save',function(next) {
 	var user=this;
-	console.log('at pre');
-	if(!user.isModified('password'))
 		return next();
 	var salt = bcrypt.genSaltSync(10);
  	var hash = bcrypt.hashSync(user.password, salt);
  	
  	user.password=hash;
-	console.log(user.password);
 	next();
 });
 

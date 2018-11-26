@@ -18,7 +18,7 @@ export default {
   methods: {
     fetch() {
       this.loading = true
-      Services.products.list({
+      Services.api.list({
         resource: this.$Services.api.api+'/tree',
       }).then((data) => {
         this.data=data.data;

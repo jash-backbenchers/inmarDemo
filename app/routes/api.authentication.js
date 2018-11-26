@@ -30,7 +30,6 @@ module.exports = function (app, express) {
               console.log(err);
               return;
             }
-            console.log("creating token with following details");
             var token = middleware.createToken(user);
             res.json({
               success: true,

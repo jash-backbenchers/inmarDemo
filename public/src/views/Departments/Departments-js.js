@@ -14,7 +14,7 @@ export default {
   methods: {
     fetch() {
       this.loading = true
-      Services.products.list({
+      Services.api.list({
         resource: this.$Services.api.api+'/departments',
       }).then((data) => {
         this.loading = false

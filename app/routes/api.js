@@ -201,7 +201,7 @@ module.exports = function (app, express) {
     }
     //   Location,Department,Category,SubCategory
 
-    Product.find({},middleware.requireLogin, function (err, testData) {
+    Product.find({}, function (err, testData) {
       if (err) {
         res.json(err)
       } else {

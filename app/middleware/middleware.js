@@ -44,7 +44,7 @@ module.exports.requireLogin = function(req, res, next) {
 			res.status(404).send({success:false,message:"not found"});
 		else
 		{
-			console.log(user);
+			// console.log(user);
 			if(req.decoded._id == user._id)
 				next();
 			else

@@ -52,7 +52,7 @@ module.exports = function (app, express) {
 
   });
 
-  api.delete('/:id',middleware.requireLogin,,middleware.requireAuthorisation, function (req, res) {
+  api.delete('/:id',middleware.requireLogin,middleware.requireAuthorisation, function (req, res) {
 
     User.findByIdAndRemove(req.params.id, function (err, user) {
       res.json(user);
