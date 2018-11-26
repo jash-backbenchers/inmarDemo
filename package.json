@@ -1,0 +1,32 @@
+{
+  "name": "inmar_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "csvtojson": "1.1.9",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.4",
+    "mongoose-paginate-v2": "^1.0.13",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "flush": "node loadData/load_data.js flush",
+    "load": "node loadData/load_data.js load",
+    "load_data": "node load_data.js"
+  },
+  "author": "jash",
+  "license": "ISC"
+}
