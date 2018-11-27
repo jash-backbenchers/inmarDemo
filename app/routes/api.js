@@ -11,24 +11,24 @@ var middleware = require('../middleware/middleware');
 
 module.exports = function (app, express) {
   var api = express.Router();
-  api.get('/location',middleware.requireLogin, function (req, res) {
-    var query={}
+  api.get('/location', middleware.requireLogin, function (req, res) {
+    var query = {}
     var options = {
       page: parseInt(req.query.page),
       limit: parseInt(req.query.page_size),
-      sort:{}
+      sort: {}
     };
 
-    if(req.query.sortField&&req.query.sortOrder){
-      options.sort[req.query.sortField]=req.query.sortOrder+'ing'
+    if (req.query.sortField && req.query.sortOrder) {
+      options.sort[req.query.sortField] = req.query.sortOrder + 'ing'
     }
-    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);  
+    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);
     console.log('-----')
     console.log(query)
     console.log(options)
     console.log('getting paged data')
-  
-    Product.paginate(query,options, function (err, products) {
+
+    Product.paginate(query, options, function (err, products) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -41,27 +41,27 @@ module.exports = function (app, express) {
     })
   });
 
-  api.get('/location/:location_id/department',middleware.requireLogin, function (req, res) {
+  api.get('/location/:location_id/department', middleware.requireLogin, function (req, res) {
     var query = {
       location: req.params.location_id
     }
     var options = {
       page: parseInt(req.query.page),
       limit: parseInt(req.query.page_size),
-      sort:{}
+      sort: {}
     };
-    
-    if(req.query.sortField&&req.query.sortOrder){
-      options.sort[req.query.sortField]=req.query.sortOrder+'ing'
+
+    if (req.query.sortField && req.query.sortOrder) {
+      options.sort[req.query.sortField] = req.query.sortOrder + 'ing'
     }
 
-    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);    
+    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);
     console.log('-----')
     console.log(query)
     console.log(options)
     console.log('getting paged data')
-  
-    Product.paginate(query,options, function (err, products) {
+
+    Product.paginate(query, options, function (err, products) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -74,7 +74,7 @@ module.exports = function (app, express) {
     })
   });
 
-  api.get('/location/:location_id/department/:department_id/category',middleware.requireLogin, function (req, res) {
+  api.get('/location/:location_id/department/:department_id/category', middleware.requireLogin, function (req, res) {
     var query = {
       location: req.params.location_id,
       department: req.params.department_id
@@ -82,20 +82,20 @@ module.exports = function (app, express) {
     var options = {
       page: parseInt(req.query.page),
       limit: parseInt(req.query.page_size),
-      sort:{}
+      sort: {}
     };
-    
-    if(req.query.sortField&&req.query.sortOrder){
-      options.sort[req.query.sortField]=req.query.sortOrder+'ing'
+
+    if (req.query.sortField && req.query.sortOrder) {
+      options.sort[req.query.sortField] = req.query.sortOrder + 'ing'
     }
 
-    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);    
+    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);
     console.log('-----')
     console.log(query)
     console.log(options)
     console.log('getting paged data')
-  
-    Product.paginate(query,options, function (err, products) {
+
+    Product.paginate(query, options, function (err, products) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -109,7 +109,7 @@ module.exports = function (app, express) {
   });
 
   // ,middleware.requireLogin
-  api.get('/location/:location_id/department/:department_id/category/:category_id/subcategory',middleware.requireLogin, function (req, res) {
+  api.get('/location/:location_id/department/:department_id/category/:category_id/subcategory', middleware.requireLogin, function (req, res) {
     var query = {
       location: req.params.location_id,
       department: req.params.department_id,
@@ -118,20 +118,20 @@ module.exports = function (app, express) {
     var options = {
       page: parseInt(req.query.page),
       limit: parseInt(req.query.page_size),
-      sort:{}
+      sort: {}
     };
-    
-    if(req.query.sortField&&req.query.sortOrder){
-      options.sort[req.query.sortField]=req.query.sortOrder+'ing'
+
+    if (req.query.sortField && req.query.sortOrder) {
+      options.sort[req.query.sortField] = req.query.sortOrder + 'ing'
     }
-  
-    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);  
+
+    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);
     console.log('-----')
     console.log(query)
     console.log(options)
     console.log('getting paged data')
-  
-    Product.paginate(query,options, function (err, products) {
+
+    Product.paginate(query, options, function (err, products) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -144,7 +144,7 @@ module.exports = function (app, express) {
     })
   });
 
-  api.get('/location/:location_id/department/:department_id/category/:category_id/subcategory/:subcategory_id',middleware.requireLogin, function (req, res) {
+  api.get('/location/:location_id/department/:department_id/category/:category_id/subcategory/:subcategory_id', middleware.requireLogin, function (req, res) {
     var query = {
       location: req.params.location_id,
       department: req.params.department_id,
@@ -154,20 +154,20 @@ module.exports = function (app, express) {
     var options = {
       page: parseInt(req.query.page),
       limit: parseInt(req.query.page_size),
-      sort:{}
+      sort: {}
     };
-    
-    if(req.query.sortField&&req.query.sortOrder){
-      options.sort[req.query.sortField]=req.query.sortOrder+'ing'
+
+    if (req.query.sortField && req.query.sortOrder) {
+      options.sort[req.query.sortField] = req.query.sortOrder + 'ing'
     }
-  
-    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);  
+
+    Object.keys(query).forEach(k => (query[k] === 'null') && delete query[k]);
     console.log('-----')
     console.log(query)
     console.log(options)
     console.log('getting paged data')
-  
-    Product.paginate(query,options, function (err, products) {
+
+    Product.paginate(query, options, function (err, products) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -180,68 +180,39 @@ module.exports = function (app, express) {
     })
   });
 
-  api.get('/tree',middleware.requireLogin, function (req, res) {
-    function parentchildren(parent, child, testData) {
+  api.get('/tree', middleware.requireLogin, function (req, res) {
+    var hierarchy = ['location', 'department', 'category', 'subcategory']
+
+    function flatToTree(parent_id, testData) {
+      var parent = hierarchy[parent_id]
       var dataMap1 = testData.reduce(function (map, node) {
         (map[node[parent]] || (map[node[parent]] = [])).push(node);
         return map;
       }, {});
-      var tree = []
-      Object.keys(dataMap1).map((key) => {
-        var dataMap = dataMap1[key].reduce(function (map, node) {
-          (map[node[child]] || (map[node[child]] = [])).push(node);
-          return map;
-        }, {});
-        tree.push({
-          name: key,
-          children: dataMap
-        })
+      Object.keys(dataMap1).map(child_name => {
+        dataMap1[child_name] = (hierarchy[parent_id + 1]) ? flatToTree(parent_id + 1, dataMap1[child_name]) : []
       })
-      return tree
+      return dataMap1;
     }
-    //   Location,Department,Category,SubCategory
+
+    function toD3treeFormat(object) {
+      var d3Tree = []
+      Object.keys(object).map(key => {
+        var item =(Object.keys(object[key]).length)?{name:key,children: toD3treeFormat(object[key])}:{name:key}
+        d3Tree.push(item)
+      })
+      return d3Tree
+    }
 
     Product.find({}, function (err, testData) {
       if (err) {
         res.json(err)
       } else {
-        var first = parentchildren('location', 'department', testData);
-        first.map((location, index) => {
-          Object.keys(location.children).map(department_name => {
-            var category = location.children[department_name];
-            var data = parentchildren('category', 'subcategory', category)
-            var items = []
-            data.children = data.map(category => {
-              items = Object.keys(category.children).map((item) => {
-                return {
-                  name: item
-                }
-              })
-              return {
-                name: category.name,
-                children: items
-              };
-            })
-            first[index].children[department_name] = data.children;
-          })
-        })
-        
-        
-        var finaltree=[]
-        first.map((location,lindex)=>{
-          var new_location={name:location.name,children:[]}
-          Object.keys(location.children).map((department_key,dindex)=>{
-            new_location.children.push({
-              name:department_key,
-              children:location.children[department_key]
-            })
-          })
-          finaltree.push(new_location)
-        })
-
-        var tree={
-          name:'master_hierarchy',
-          children:finaltree
+        var tree = flatToTree(0, testData)
+        var d3tree = toD3treeFormat(tree)
+        var tree = {
+          name: 'master_hierarchy',
+          children: d3tree
         }
         res.json(tree);
       }
@@ -249,7 +220,7 @@ module.exports = function (app, express) {
 
   });
 
-  api.get('/departments',middleware.requireLogin, function (req, res) {
+  api.get('/departments', middleware.requireLogin, function (req, res) {
 
     const aggregatorOpts = [{
       $group: {
@@ -266,12 +237,12 @@ module.exports = function (app, express) {
 
   });
 
-  api.get('/settings',middleware.requireLogin, function (req, res) {
-    var queries=[];
+  api.get('/settings', middleware.requireLogin, function (req, res) {
+    var queries = [];
     //location,department,category,subcategory
     //0
-    queries.push(function (cb) {     
-      Product.find().distinct('location',function (err, docs) {
+    queries.push(function (cb) {
+      Product.find().distinct('location', function (err, docs) {
         if (err) {
           throw cb(err);
         }
@@ -281,8 +252,8 @@ module.exports = function (app, express) {
     })
 
     //1
-    queries.push(function (cb) {     
-      Product.find().distinct('department',function (err, docs) {
+    queries.push(function (cb) {
+      Product.find().distinct('department', function (err, docs) {
         if (err) {
           throw cb(err);
         }
@@ -292,8 +263,8 @@ module.exports = function (app, express) {
     })
 
     //2
-    queries.push(function (cb) {     
-      Product.find().distinct('category',function (err, docs) {
+    queries.push(function (cb) {
+      Product.find().distinct('category', function (err, docs) {
         if (err) {
           throw cb(err);
         }
@@ -303,8 +274,8 @@ module.exports = function (app, express) {
     })
 
     //3
-    queries.push(function (cb) {     
-      Product.find().distinct('subcategory',function (err, docs) {
+    queries.push(function (cb) {
+      Product.find().distinct('subcategory', function (err, docs) {
         if (err) {
           throw cb(err);
         }
@@ -323,11 +294,11 @@ module.exports = function (app, express) {
         });
       }
 
-      var result={
-        location:docs[0],
-        department:docs[1],
-        category:docs[2],
-        subcategory:docs[3],
+      var result = {
+        location: docs[0],
+        department: docs[1],
+        category: docs[2],
+        subcategory: docs[3],
       }
       res.json({
         success: true,
