@@ -10,7 +10,7 @@
       <a-row :gutter="16">
       <a-col :span="6" v-for="(department,index) in departmentsdata" :key="index" style="margin-bottom:16px">
         <a-card hoverable style="width: 100%;" v-on:click="$router.push('/products/'+department._id)" >
-        <img :alt="department._id" :src="require(`@/assets/${department._id}.png`)" slot="cover" />
+        <img :alt="department._id" style="width:250px" :src="getImageLocation(department._id)" />
         <a-card-meta :title="department._id">
           <template slot="description">Total products: {{department.count}}</template>
         </a-card-meta>

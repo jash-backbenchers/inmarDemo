@@ -6,7 +6,7 @@ import {
 } from 'ant-design-vue'
 
 class REST {
-  API_URL='/api/v1'
+  API_URL='http://localhost:4000/api/v1'
     page_size=20;
 
     // eslint-disable-next-line
@@ -84,7 +84,7 @@ class REST {
 
 // Authentication
 class Authentication {
-  API_URL='/api/v1'
+  API_URL='http://localhost:4000/api/v1'
   // To set the token in localstorage
   setToken(token) {
     localStorage.setItem('Token', token);

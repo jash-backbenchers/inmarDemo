@@ -10,6 +10,12 @@ export default {
         category:[],
         subcategory:[],
       },
+      newsetting:{
+        location:null,
+        department:null,
+        category:null,
+        subcategory:null,
+      },
       saving_product:false,
       payload: {
         sku: null,
@@ -59,7 +65,7 @@ export default {
           () => {
             that.saving_product = false;
             that.$Services.noty.success('Product Added Successfully');
-            window.location.href = '/products/null';
+            // window.location.href = '/products/null';
           },
           (error) => {
             that.saving_product = false;

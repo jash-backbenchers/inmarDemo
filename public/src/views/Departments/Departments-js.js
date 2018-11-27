@@ -12,6 +12,16 @@ export default {
     };
   },
   methods: {
+    getImageLocation(id){
+      try {
+        return require(`@/assets/${id}.png`);
+     }
+     // fallback if does not exists
+     catch(err) {
+        return require('@/assets/default.png');
+
+     }     
+    },
     fetch() {
       this.loading = true
       Services.api.list({

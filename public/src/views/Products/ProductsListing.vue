@@ -13,7 +13,8 @@
       <a-row :gutter="16">
         <a-col :span="6" v-for="(product,index) in data" :key="index" style="margin-bottom:16px">
           <a-card hoverable style="width: 100%;">
-            <img :alt="product.name" :src="require(`@/assets/${product.department}.png`)" slot="cover" />
+            <img :alt="product.name" style="width:250px" :src="getImageLocation(product.department)" />
+            
             <template class="ant-card-actions" slot="actions">
               <a-icon type="eye" @click="showModal(product)" />
               <a-icon type="edit" @click="showEditModal(product,product._id,'edit')" />
